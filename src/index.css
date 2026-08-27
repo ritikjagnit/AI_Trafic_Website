@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0a0e17;
+    color: #e2e8f0;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080c14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Glass & Card Glow Styling */
+.command-card {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(13, 19, 34, 0.98) 100%);
+  border: 1px solid rgba(31, 41, 61, 0.8);
+}
+
+.command-card-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.command-card-hover:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Glowing Pulsing Status Rings */
+.status-ping {
+  position: relative;
+}
+
+.status-ping::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Animated Road Dash Lines */
+.road-dash {
+  stroke-dasharray: 8 6;
+  animation: dashAnimation 1.5s linear infinite;
+}
+
+@keyframes dashAnimation {
+  from {
+    stroke-dashoffset: 28;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Emergency Alert Flash Background */
+.emergency-bg-flash {
+  animation: bgFlash 1.2s infinite alternate ease-in-out;
+}
+
+@keyframes bgFlash {
+  0% {
+    background-color: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.8);
+  }
+  100% {
+    background-color: rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 1);
+  }
+}
